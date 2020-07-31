@@ -8,6 +8,7 @@
             Pizzas
         </div>
 
+        <p>{{ $name }}</p>
         <!-- for loop -->
         @foreach($pizza as $i)
             <div>
