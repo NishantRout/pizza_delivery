@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/pizzas', 'PizzaController@index');
 
 Route::get('/pizzas/{id}', 'PizzaController@show');
+
+Route::get('/test/env', function () {
+    dd(env('DB_DATABASE')); // dump db variable value one by one
+});
