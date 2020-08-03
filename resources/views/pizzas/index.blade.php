@@ -8,11 +8,10 @@
             Pizzas
         </div>
 
-        <p>{{ $name }}</p>
         <!-- for loop -->
-        @foreach($pizza as $i)
+        @foreach($pizzas as $pizza)
             <div>
-                {{$loop -> index}}.{{$i['type']}} - {{$i['base']}} - {{$i['price']}}
+                {{ $pizza->name }} - {{ $pizza->type }} - {{ $pizza->base }} - {{ $pizza->price }}
             </div>
         @endforeach
     </div>
