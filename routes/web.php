@@ -25,6 +25,8 @@ Route::post('/pizzas', 'PizzaController@store');
 
 Route::get('/pizzas/{id}', 'PizzaController@show');
 
+Route::delete('/pizzas/{id}', 'PizzaController@destroy');
+
 Route::get('/test/env', function () {
     dd(env('DB_DATABASE')); // dump db variable value one by one
 });
