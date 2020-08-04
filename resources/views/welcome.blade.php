@@ -6,7 +6,7 @@
         <div class="top-right links">
             @auth
                 <a href="{{ url('/home') }}">Home</a>
-            @else
+            @else 
                 <a href="{{ route('login') }}">Login</a>
 
                 @if (Route::has('register'))
@@ -22,6 +22,7 @@
         <div class="title m-b-md">
             India's Best Pizza
         </div>
+        <p class="mssg">{{ session('mssg')}}</p>
         <a href="/pizzas/create">Order a Pizza</a>
     </div>
 </div>
