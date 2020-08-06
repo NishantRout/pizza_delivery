@@ -17,21 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizzas', 'PizzaController@index');
+Route::get('/pizzas', 'PizzaController@index')->name('pizzas.index')->middleware('auth');
 
-Route::get('/pizzas/create', 'PizzaController@create');
+Route::get('/pizzas/create', 'PizzaController@create')->name('pizzas.create');
 
-Route::post('/pizzas', 'PizzaController@store');
+Route::post('/pizzas', 'PizzaController@store')->name('pizzas.store');
 
-Route::get('/pizzas/{id}', 'PizzaController@show');
+Route::get('/pizzas/{id}', 'PizzaController@show')->name('pizzas.show')->middleware('auth');
 
-Route::delete('/pizzas/{id}', 'PizzaController@destroy');
+Route::delete('/pizzas/{id}', 'PizzaController@destroy')->name('pizzas.destroy')->middleware('auth');
 
 Route::get('/test/env', function () {
     dd(env('DB_DATABASE')); // dump db variable value one by one
 });
 
 
-Auth::routes();
+Auth::routes([
+    'register' => false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
